@@ -51,9 +51,9 @@ namespace oneapi::math::rng::device {
 //
 // Input arguments:
 //      a - left bound. 0.0 by default
-//      b - right bound. 1.0 by default (for std::(u)int32_t std::numeric_limits<std::int32_t>::max()
-//          is used for accurate method and 2^23 is used for standard method;
-//          for std::(u)int8, std::(u)int16, std::(u)int64_t are used std::numeric_limits<one_of_these_three_types>::max())
+//      b - right bound. 1.0 for floating point types.
+//          For integer types, 2^23 is used for std::(u)int32_t in the case of standard method,
+//          and std::numeric_limits<integer_type>::max() for other integer types.
 //
 // Note: using (un)signed integer uniform distribution with uniform_method::standard method may
 // cause incorrect statistics of the produced random numbers (due to rounding error) if
